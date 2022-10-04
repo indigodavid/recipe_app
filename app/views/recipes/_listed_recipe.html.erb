@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <%= recipe.name %>
+    <% if can? :destroy, recipe %>
+    <%= link_to 'Remove',
+      recipe_path(recipe), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    },
+      class: "btn btn-danger" %>
+      <% end %>
+  </div>
+  <div class="text-truncate">
+    <%= recipe.description %>
+  </div>
+</div>

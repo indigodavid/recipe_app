@@ -26,19 +26,14 @@
     <%= form.time_field :cooking_time %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description %>
   </div>
 
   <div>
     <%= form.label :public, style: "display: block" %>
     <%= form.check_box :public %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
   </div>
 
   <div>
