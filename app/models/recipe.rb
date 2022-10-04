@@ -4,5 +4,4 @@ class Recipe < ApplicationRecord
   # has_rich_text :description
 
   validates :name, :preparation_time, :description, presence: true
-
 end
