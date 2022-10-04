@@ -6,12 +6,12 @@
 
   <p>
     <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
+    <%= recipe.preparation_time.to_s(:time) %>
   </p>
 
   <p>
     <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
+    <%= recipe.cooking_time.to_s(:time) %>
   </p>
 
   <p>
@@ -29,4 +29,12 @@
     <%= recipe.user_id %>
   </p>
 
+  <% recipe.recipe_foods.each do |recipe_food| %>
+    <% food = recipe_food.food %>
+    <div>
+      <div>Food: <%= food.name %></div>
+      <div>Quantity: <%= recipe_food.quantity %> <%= food.measurement_unit %></div>
+      <div>Value: <%= (recipe_food.quantity * food.price).round(2) %></div>
+    </div>
+  <% end %>
 </div>
