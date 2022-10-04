@@ -1,6 +1,6 @@
-<div id="<%= dom_id food %>">
-  <table class="table table-striped">
-    <thead>
+<div id="<%= dom_id food %>" class="container-fluid">
+  <table class="table table-primary table-striped">
+    <thead class="table-light ">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
@@ -8,6 +8,7 @@
         <th scope="col">Price</th>
         <th scope="col">Quantity</th>
         <th scope="col">User</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
         <td><%= food.price %></td>
         <td><%= food.quantity %></td>
         <td><%= food.user_id %></td>
+        <td><%= button_to "Delete", food, method: :delete, class: "btn btn-danger" %></td>
       </tr>
     </tbody>
   </table>
