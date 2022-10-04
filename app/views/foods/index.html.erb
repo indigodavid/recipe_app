@@ -1,13 +1,30 @@
-<div class = "mb-3 m-5">
-  <p style="color: green"><%= notice %></p>
-  <h1>Foods</h1>
-  <div id="foods">
-    <% @foods.each do |food| %>
-      <%= render food %>
-      <p>
-        <%= link_to "Show this food", food %>
-      </p>
-    <% end %>
+<p style="color: green"><%= notice %></p>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <h1>Foods</h1>
+    </div>
+    <div class="col">
+      <%= link_to "Add new Food", new_food_path %>
+    </div>
   </div>
-  <%= link_to "New food", new_food_path %>
-</div>
+  <div id="foods">
+    <div class="container-fluid">
+      <table class="table table-primary table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Measurement unit</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <%= render food %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

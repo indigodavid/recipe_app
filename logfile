@@ -1,0 +1,7 @@
+2022-10-05 00:10:04.202 EAT [7385] LOG:  starting PostgreSQL 14.5 (Homebrew) on x86_64-apple-darwin21.5.0, compiled by Apple clang version 13.1.6 (clang-1316.0.21.2.5), 64-bit
+2022-10-05 00:10:04.207 EAT [7385] LOG:  listening on IPv6 address "::1", port 5432
+2022-10-05 00:10:04.208 EAT [7385] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-10-05 00:10:04.210 EAT [7385] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-10-05 00:10:04.223 EAT [7386] LOG:  database system was shut down at 2022-10-05 00:09:46 EAT
+2022-10-05 00:10:04.240 EAT [7385] LOG:  database system is ready to accept connections
+2022-10-05 00:10:50.012 EAT [7453] FATAL:  database "recipe_app_development" does not exist
