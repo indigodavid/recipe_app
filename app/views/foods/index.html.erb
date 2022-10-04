@@ -5,14 +5,26 @@
       <h1>Foods</h1>
     </div>
     <div class="col">
-      <%= link_to "Add Food", new_food_path %>
+      <%= link_to "Add new Food", new_food_path %>
     </div>
   </div>
   <div id="foods">
-    <% @foods.each do |food| %>
-      <%= render food %>
-      <p>
-        <%= link_to "Show this food", food %>
-      </p>
-    <% end %>
+    <div class="container-fluid">
+      <table class="table table-primary table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Measurement unit</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <%= render food %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
