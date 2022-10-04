@@ -6,6 +6,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def public
+    @recipes = Recipe.select{ |recipe| recipe.public }
+  end
   # GET /recipes/1 or /recipes/1.json
   def show; end
 
