@@ -1,9 +1,35 @@
-<div>
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-</div>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Recipe App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Foods', foods_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Recipes', recipes_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%# <%= link_to 'Public Reciepes', public_recipe_path, class: "nav-link"%> %>
+        </li>
+        <li class="nav-item">
+          <%# <%= link_to 'General Shooping List', general_recipe_path, class: "nav-link"%> %>
+        </li>
+      </ul>
+      <ul>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%# <%= link_to 'Edit profile', edit_user_registation_path, class: 'navbar-link' %> %>
+            <li class="nav-item">Logged in as <strong><%= current_user.email %></strong>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'%></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %>  |
+              <%= link_to "Sign in", new_user_session_path, class: 'navbar-link' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
