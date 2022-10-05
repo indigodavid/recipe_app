@@ -6,12 +6,12 @@
 
   <p>
     <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
+    <%= recipe.preparation_time.to_s(:time) %>
   </p>
 
   <p>
     <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
+    <%= recipe.cooking_time.to_s(:time) %>
   </p>
 
   <p>
@@ -29,4 +29,10 @@
     <%= recipe.user_id %>
   </p>
 
+  <p>
+    <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe) %>
+  </p>
+  <%= render 'shared/food_table' do %>
+    <%= render recipe.recipe_foods %>
+  <% end %>
 </div>

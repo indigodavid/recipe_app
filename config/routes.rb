@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :recipes do
     resources :recipe_foods
+    get '/add_food/', to: 'recipe_foods#add_food'
   end
+
 end
