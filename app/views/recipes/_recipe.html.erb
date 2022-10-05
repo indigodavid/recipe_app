@@ -29,12 +29,10 @@
     <%= recipe.user_id %>
   </p>
 
-  <% recipe.recipe_foods.each do |recipe_food| %>
-    <% food = recipe_food.food %>
-    <div>
-      <div>Food: <%= food.name %></div>
-      <div>Quantity: <%= recipe_food.quantity %> <%= food.measurement_unit %></div>
-      <div>Value: <%= (recipe_food.quantity * food.price).round(2) %></div>
-    </div>
+  <p>
+    <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe) %>
+  </p>
+  <%= render 'shared/food_table' do %>
+    <%= render recipe.recipe_foods %>
   <% end %>
 </div>
