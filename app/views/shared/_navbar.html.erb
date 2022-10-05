@@ -13,25 +13,23 @@
           <%= link_to 'Recipes', recipes_path, class: "nav-link"%>
         </li>
         <li class="nav-item">
-          <%= link_to 'Public Reciepes', public_recipe_path, class: "nav-link"%>
+          <%# <%= link_to 'Public Reciepes', public_recipe_path, class: "nav-link"%> %>
         </li>
         <li class="nav-item">
-          <%= link_to 'General Shooping List', general_recipe_path, class: "nav-link"%>
+          <%# <%= link_to 'General Shooping List', general_recipe_path, class: "nav-link"%> %>
         </li>
       </ul>
       <ul>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Edit profile', edit_user_registation_path, class: 'navbar-link' %>
-          </>
-          <li class="nav-item">Logged in as <strong><%= current_user.email %></strong>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'%></li>
-        <% else %>
-          <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %></li>
-          |
-          <li class="nav-item"><%= link_to "Sign in", new_user_session_path, class: 'navbar-link' %></li>
-        <% end %>
-      </ul>
+            <%# <%= link_to 'Edit profile', edit_user_registation_path, class: 'navbar-link' %> %>
+            <li class="nav-item">Logged in as <strong><%= current_user.email %></strong>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'%></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %>  |
+              <%= link_to "Sign in", new_user_session_path, class: 'navbar-link' %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
