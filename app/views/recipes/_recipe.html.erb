@@ -30,6 +30,7 @@
   </p>
 
   <p>
+    <%= link_to 'Generate Shopping List', recipe_shopping_list_path(recipe) %>
     <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe) %>
   </p>
   <%= render 'shared/food_table' do %>

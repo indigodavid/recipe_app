@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
+  # adapter: postgresql
   database: recipe_app_development
 
   # The specified database role being used to connect to postgres.

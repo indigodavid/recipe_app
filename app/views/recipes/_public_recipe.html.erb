@@ -3,15 +3,16 @@
     <%= recipe.name %>
     <%= "By #{recipe.user.name}" %>
     <% if can? :destroy, recipe %>
-    <%= link_to 'Remove',
-      recipe_path(recipe), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    },
-      class: "btn btn-danger" %>
+      <%= link_to 'Remove',
+        recipe_path(recipe), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      },
+        class: "btn btn-danger" %>
+    <% end %>
   </div>
   <div>
-    <div>Total food items: <%= recipe.foods.count %></div>
+    <div>Total food items: <%= recipe.recipe_foods.count %></div>
     <div>Total Price: <%= recipe.total_cost %></div>
   </div>
 </div>
