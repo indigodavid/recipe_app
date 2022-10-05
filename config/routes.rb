@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :recipe_foods
     get '/add_food/', to: 'recipe_foods#add_food'
   end
-
+  get '/public_recipes', to: 'recipes#public_recipes'
 end
