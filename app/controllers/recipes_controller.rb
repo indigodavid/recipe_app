@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
   end
 
   def public_recipes
@@ -60,6 +60,18 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def shopping_list
+    @total_value = 0
+    recipe = Recipe.find(params[:recipe_id])
+    @recipe_foods = recipe.recipe_foods.select do |recipe_food|
+      food = recipe_food.food
+      user_food = current_user.foods.find_by(name: food.name, measurement_unit: food.measurement_unit)
+      @total_value += recipe_food.cost_required(user_food)
+      recipe_food.quantity_needed(user_food).positive?
+    end
+    @items_to_buy = @recipe_foods.count
   end
 
   private
