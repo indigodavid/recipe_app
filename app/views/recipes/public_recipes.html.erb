@@ -3,10 +3,15 @@
 <h1>Public Recipes</h1>
 
 <div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render 'public_recipe', recipe: %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+  <%= link_to 'Create new recipe', new_recipe_path, class: 'btn btn-primary' %>
+  <% if @recipes.count > 0 %>
+    <% @recipes.each do |recipe| %>
+      <%= render 'public_recipe', recipe: %>
+      <p>
+        <%= link_to "Show this recipe", recipe %>
+      </p>
+    <% end %>
+  <% else %>
+    <h3>No public recipes posted</h3>
   <% end %>
 </div>
