@@ -10,7 +10,7 @@ RSpec.describe Food, type: :model do
     @user.name = nil
     expect(@user).to_not be_valid
   end
-  
+
   it 'measurement_unit should be present' do
     @food.measurement_unit = nil
     expect(@food).to_not be_valid
