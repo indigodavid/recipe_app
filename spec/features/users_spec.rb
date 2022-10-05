@@ -6,7 +6,7 @@ RSpec.feature 'Users', type: :feature do
   end
 
   it 'is valid with a name' do
-    expect(@user.name).to eq('Test User')
+    expect(@user.name).to eq('Addisu')
   end
 
   it 'is not valid without a name' do
