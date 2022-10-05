@@ -23,7 +23,12 @@ default: &default
 
 development:
   <<: *default
+  adapter: postgresql
   database: recipe_app_development
+  host: localhost
+  username: postgres
+  password: 1987
+  port: 1987
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
