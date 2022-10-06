@@ -34,6 +34,6 @@
     <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe) %>
   </p>
   <%= render 'shared/food_table' do %>
-    <%= render recipe.recipe_foods %>
+    <%= render @recipe_foods %>
   <% end %>
 </div>
