@@ -25,11 +25,11 @@
     <%= form.label :description, style: "display: block", class: "form-label"  %>
     <%= form.text_area :description, class: "form-control m-2 w-50 row-5" %>
   </div>
-  <div>
-    <%= form.label :public, style: "display: block", class: "form-label"  %>
-    <%= form.check_box :public %>
+  <div class="form-check form-switch">
+    <%= form.check_box :public, class: "form-check-input", role: "switch" %>
+    <%= form.label :public, style: "display: block", class: "form-check-label"  %>
   </div>
-  <div>
+  <div class="mt-4 actions">
     <%= form.submit class:"btn btn-success" %>
   </div>
 <% end %>
