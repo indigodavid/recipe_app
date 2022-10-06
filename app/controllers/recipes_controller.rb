@@ -12,7 +12,9 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe_foods = @recipe.recipe_foods.includes(:food, :recipe)
+  end
 
   # GET /recipes/new
   def new
@@ -65,12 +67,13 @@ class RecipesController < ApplicationController
   def shopping_list
     @total_value = 0
     recipe = Recipe.find(params[:recipe_id])
-    @recipe_foods = recipe.recipe_foods.select do |recipe_food|
+    @recipe_foods = recipe.recipe_foods.includes(:food).select do |recipe_food|
       food = recipe_food.food
       user_food = current_user.foods.find_by(name: food.name, measurement_unit: food.measurement_unit)
-      @total_value += recipe_food.cost_required(user_food)
-      recipe_food.quantity_needed(user_food).positive?
+      @total_value += recipe_food.process_cost(user_food)
+      recipe_food.process_quantity(user_food).positive?
     end
+    @total_value = @total_value.round(2)
     @items_to_buy = @recipe_foods.count
   end
 
