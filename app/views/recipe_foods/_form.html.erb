@@ -10,13 +10,13 @@
     </div>
   <% end %>
   <div class="mb-3">
-    <%= form.label :quantity, style: "display: block", class: "form-label" %>
-    <%= form.number_field :quantity,  class: "form-control m-2 w-50"%>
+    <%= form.label :food_id, style: "display: block", class: "form-label" %>
+    <%= form.select :food_id, @foods.map {|food| ["#{food.name} in #{food.measurement_unit}", food.id]}, {}, { class: 'form-select form-select-lg' } %>
+    If food not present you may <%= link_to 'Add New Food', action: :add_food %>
   </div>
   <div class="mb-3">
-    <%= form.label :food_id, style: "display: block", class: "form-label" %>
-    <%= form.select :food_id, @foods.map {|food| ["#{food.name} in #{food.measurement_unit}", food.id]} %>
-    <%= link_to 'Add New Food', action: :add_food %>
+    <%= form.label :quantity, style: "display: block", class: "form-label" %>
+    <%= form.number_field :quantity,  class: "form-control m-2 w-50"%>
   </div>
   <div>
     <%= form.submit class:"btn btn-success"%>
