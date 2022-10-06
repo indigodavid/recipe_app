@@ -1,0 +1,9 @@
+<tr>
+  <td><%= recipe_food.food.name %></td>
+  <td><%= recipe_food.food.measurement_unit %></td>
+  <td>$<%= recipe_food.food.price %></td>
+  <td><%= recipe_food.quantity %></td>
+  <td class="d-flex justify-content-evenly">
+    <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_food.recipe, recipe_food), class: "btn btn-primary" %>
+    <%= button_to "Delete", recipe_recipe_food_path(recipe_food.recipe, recipe_food), method: :delete, class: "btn btn-danger" %></td>
+</tr>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <%= link_to 'Recipe App', root_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Foods', foods_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Recipes', recipes_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'General Shopping List', general_shopping_list_path, class: "nav-link"%>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to 'Public Recipes', public_recipes_path, class: "nav-link"%>
+        </li>
+        
+      </ul>
+      <ul>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %>
+            <li class="nav-item">Logged in as <strong><%= current_user.email %></strong>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'%></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %>  |
+              <%= link_to "Sign in", new_user_session_path, class: 'navbar-link' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
