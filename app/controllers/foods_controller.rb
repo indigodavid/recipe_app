@@ -49,6 +49,19 @@ class FoodsController < ApplicationController
     end
   end
 
+  def general_shopping_list
+    @total_value = 0
+    @items_to_buy = 0
+    @foods = current_user.foods
+    @foods.each do |food|
+      recipe_food = RecipeFood.find_by(food:)
+      next if recipe_food.nil?
+
+      @items_to_buy += 1 if recipe_food.process_quantity(food).positive?
+      @total_value += recipe_food.process_cost(food)
+    end
+  end
+
   # DELETE /foods/1 or /foods/1.json
   def destroy
     @food.destroy
