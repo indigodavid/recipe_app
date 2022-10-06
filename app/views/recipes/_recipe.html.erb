@@ -1,38 +1,39 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
+<div id="<%= dom_id recipe %>" class="d-flex flex-column gap-3">
+  <h1 class="text-center">
     <%= recipe.name %>
-  </p>
+  </h1>
 
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time.to_s(:time) %>
-  </p>
+  <div class="container-lg row">
 
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time.to_s(:time) %>
-  </p>
+    <div class="col">
+      <div>
+        <strong>Preparation time:</strong>
+        <%= recipe.preparation_time.to_s(:time) %>
+      </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
+      <div>
+        <strong>Cooking time:</strong>
+        <%= recipe.cooking_time.to_s(:time) %>
+      </div>
+    </div>
+    
+    <div class="col d-flex justify-content-end">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" <%= 'checked' if recipe.public %> disabled>
+        <label class="form-check-label" for="flexSwitchCheckDisabled">Public</label>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
+  <div class="container-lg row">
+    <h4>Description:</h4>
+    <div><%= recipe.description %><div>
+  </div>
 
-  <p>
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
-
-  <p>
-    <%= link_to 'Generate Shopping List', recipe_shopping_list_path(recipe) %>
-    <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe) %>
-  </p>
+  <div class="d-flex justify-content-between container-lg mt-3 mb-3">
+    <%= link_to 'Generate Shopping List', recipe_shopping_list_path(recipe), class: 'btn btn-secondary' %>
+    <%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe), class: 'btn btn-success' %>
+  </div>
   <%= render 'shared/food_table' do %>
     <%= render @recipe_foods %>
   <% end %>
