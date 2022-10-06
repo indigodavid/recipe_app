@@ -2,13 +2,13 @@
 
 <h1>Recipes</h1>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render 'listed_recipe', recipe: %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+<div id="recipes" class="d-flex flex-column align-items-center gap-3">
+  <div class="container-lg align-self-start"><%= link_to "New recipe", new_recipe_path, class: 'btn btn-primary' %></div>
+  <% if @recipes.count > 0 %>
+    <% @recipes.each do |recipe| %>
+      <%= render 'listed_recipe', recipe: %>
+    <% end %>
+  <% else %>
+    <h3>No recipes posted</h3>
   <% end %>
 </div>
-
-<%= link_to "New recipe", new_recipe_path %>

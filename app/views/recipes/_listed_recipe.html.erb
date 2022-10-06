@@ -1,16 +1,18 @@
-<div>
-  <div>
-    <%= recipe.name %>
+<div class="container-lg row p-4 border border-secondary rounded shadow">
+  <div class="col-3">
+    <h3>
+      <%= link_to recipe.name, recipe %>
+    </h3>
     <% if can? :destroy, recipe %>
-    <%= link_to 'Remove',
+    <div><%= link_to 'Remove',
       recipe_path(recipe), data: {
                       turbo_method: :delete,
                       turbo_confirm: "Are you sure?"
                     },
-      class: "btn btn-danger" %>
+      class: "btn btn-danger" %></div>
       <% end %>
   </div>
-  <div class="text-truncate">
+  <div class="col-5 text-truncate">
     <%= recipe.description %>
   </div>
 </div>
