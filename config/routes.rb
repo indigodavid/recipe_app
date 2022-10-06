@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     get '/shopping_list', to: 'recipes#shopping_list'
   end
   get '/public_recipes', to: 'recipes#public_recipes'
+  get '/general_shopping_list', to: 'foods#general_shopping_list'
 end
